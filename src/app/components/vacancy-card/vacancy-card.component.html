@@ -1,60 +1,60 @@
 <div class="container">
   <header>
     <h2>
-      {{ vacancy?.nombreVacante }} <span>{{ vacancy?.calificacion }} ★</span>
+      {{ vacancy!.nombreVacante }} <span>{{ vacancy!.calificacion }} ★</span>
     </h2>
   </header>
   <section>
     <div class="chip-container">
       <span><b>Idiomas:</b></span>
-      @for (lang of vacancy?.idiomas; track lang) {
+      @for (lang of vacancy!.idiomas; track lang) {
       <span class="chip">{{ lang }}</span>
       }
     </div>
     <div class="chip-container">
       <span><b>Habilidades blandas:</b></span>
-      @for (skill of vacancy?.habilidadesBlandas; track skill) {
+      @for (skill of vacancy!.habilidadesBlandas; track skill) {
       <span class="chip">{{ skill }}</span>
       }
     </div>
     <div class="chip-container">
       <span><b>Habilidades técnicas:</b></span>
-      @for (skill of vacancy?.habilidadesTecnicas; track skill) {
+      @for (skill of vacancy!.habilidadesTecnicas; track skill) {
       <span class="chip">{{ skill }}</span>
       }
     </div>
-    <p><b>Escolaridad:</b> {{ vacancy?.escolaridad }}</p>
+    <p><b>Escolaridad:</b> {{ vacancy!.escolaridad }}</p>
     <p>
       <b>Disponibilidad de viaje:</b>
-      {{ vacancy?.disponibilidadViaje ? "Sí" : "No" }}
+      {{ vacancy!.disponibilidadViaje ? "Sí" : "No" }}
     </p>
     <p>
       <b>Disponibilidad de radicar:</b>
 
-      {{ vacancy?.disponibilidadRadicar ? "Sí" : "No" }}
+      {{ vacancy!.disponibilidadRadicar ? "Sí" : "No" }}
     </p>
     <p>
-      <b>Salario:</b> ${{ vacancy?.salarioMin }} - {{ vacancy?.salarioMax }}
-      {{ vacancy?.tipoSueldo }} ({{ vacancy?.periodoPago }})
+      <b>Salario:</b> ${{ vacancy!.salarioMin }} - {{ vacancy!.salarioMax }}
+      {{ vacancy!.tipoSueldo }} ({{ vacancy!.periodoPago }})
     </p>
-    <p><b>Tipo de contrato:</b> {{ vacancy?.tipoContrato }}</p>
-    <p><b>Horario laboral:</b> {{ vacancy?.horario }}</p>
+    <p><b>Tipo de contrato:</b> {{ vacancy!.tipoContrato }}</p>
+    <p><b>Horario laboral:</b> {{ vacancy!.horario }}</p>
     <div class="chip-container">
       <span><b>Días laborales:</b></span>
-      @for(day of vacancy?.diasLaborales; track day) {
+      @for(day of vacancy!.diasLaborales; track day) {
       <span class="chip">{{ weekDays[day] }}</span>
       }
     </div>
-    <p><b>Nivel del puesto:</b> {{ vacancy?.nivelPuesto }}</p>
+    <p><b>Nivel del puesto:</b> {{ vacancy!.nivelPuesto }}</p>
     <p><b>Prestaciones:</b></p>
     <ul>
-      @for (prestacion of vacancy?.prestaciones; track prestacion) {
+      @for (prestacion of vacancy!.prestaciones; track prestacion) {
       <li>{{ prestacion }}</li>
       }
     </ul>
-    <p><b>Experiencia requerida:</b> {{ vacancy?.experiencia }}</p>
+    <p><b>Experiencia requerida:</b> {{ vacancy!.experiencia }}</p>
     <p>
-      <b>Rango de edad:</b> {{ vacancy?.edadMin }} - {{ vacancy?.edadMax }} años
+      <b>Rango de edad:</b> {{ vacancy!.edadMin }} - {{ vacancy!.edadMax }} años
     </p>
     <a href="#" class="button">Postularse</a>
   </section>

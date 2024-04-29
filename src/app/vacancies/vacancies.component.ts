@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { Vacancy } from '../interfaces/vacancy';
 import { VacancyCardComponent } from '../components/vacancy-card/vacancy-card.component';
 import { VacancyDetailComponent } from '../components/vacancy-detail/vacancy-detail.component';
+import { VacancyService } from '../services/vacancies/vacancy.service';
 
 @Component({
   selector: 'app-vacancies',
   standalone: true,
-  imports: [VacancyCardComponent, VacancyDetailComponent],
+  imports: [VacancyCardComponent, VacancyDetailComponent, CommonModule],
   templateUrl: './vacancies.component.html',
   styleUrl: './vacancies.component.css',
 })
@@ -148,7 +151,17 @@ export class VacanciesComponent {
 
   selected?: Vacancy = this.vacancies[0];
 
+  constructor(private vacancyService: VacancyService) {}
+
   onClick(vacancy: Vacancy): void {
     this.selected = vacancy;
+  }
+
+  getVacancies(): void {
+    this.vacancyService.getVacancies().subscribe(response => { this.vacancies = response })
+  }
+
+  ngOnInit(): void {
+    this.getVacancies();
   }
 }
