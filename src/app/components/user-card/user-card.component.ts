@@ -6,7 +6,7 @@ import { User } from '../../interfaces/user';
   standalone: true,
   imports: [],
   templateUrl: './user-card.component.html',
-  styleUrl: './user-card.component.css',
+  styleUrls: ['../../app.component.css', './user-card.component.css'],
 })
 export class UserCardComponent {
   @Input() user?: User;

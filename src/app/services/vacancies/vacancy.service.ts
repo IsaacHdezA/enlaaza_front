@@ -15,4 +15,8 @@ export class VacancyService {
 	getVacancies(): Observable<Vacancy[]> {
 		return this.http.get<Vacancy[]>(`${this.vacancyURL}/all`);
 	}
+
+	getVacancyById(id: number): Observable<Vacancy> {
+		return this.http.get<Vacancy>(`${this.vacancyURL}/${id}`);
+	}
 }

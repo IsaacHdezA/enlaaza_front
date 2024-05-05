@@ -29,6 +29,10 @@
     }
   </section>
   <section class="vacancy-detail">
-    <app-vacancy-detail [vacancy]="selected"></app-vacancy-detail>
+      <app-vacancy-detail-card
+        [class]="detailsFixed ? 'fixed' : 'no-fixed'"
+        (scroll)="onScroll"
+        [vacancy]="selected"
+      ></app-vacancy-detail-card>
   </section>
 </main>

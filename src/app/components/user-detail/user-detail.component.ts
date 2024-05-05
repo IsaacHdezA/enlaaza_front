@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/users/user.service';
-import { UserCardComponent } from '../user-card/user-card.component';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [UserCardComponent],
+  imports: [],
   templateUrl: './user-detail.component.html',
   styleUrls: ['../../app.component.css', './user-detail.component.css'],
 })

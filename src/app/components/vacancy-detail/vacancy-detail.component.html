@@ -1,96 +1,100 @@
-<div class="container">
-  <header>
-    <h2>
-      {{ vacancy?.nombreVacante }}
-    </h2>
-    <a href="">{{ vacancy?.nombreEmpresa }}</a> ·
-    <span>{{ vacancy?.calificacion }} ★</span>
-    <p>{{ vacancy?.modalidad }}</p>
+<main class="my-content">
+	<section>
+		@if(vacancy) {
+			<header>
+				<h2>
+					{{ vacancy!.nombreVacante }}
+				</h2>
+				<a href="">{{ vacancy!.nombreEmpresa }}</a> ·
+				<span>{{ vacancy!.calificacion }} ★</span>
+				<p>{{ vacancy!.modalidad }}</p>
 
-    <p>
-      ${{ vacancy?.salarioMin }} a ${{ vacancy?.salarioMax }}
-      {{ vacancy?.tipoSueldo }} ({{ vacancy?.periodoPago }}) -
-      {{ vacancy?.tipoEmpleo }}
-    </p>
+				<p>
+					${{ vacancy!.salarioMin }} a ${{ vacancy!.salarioMax }}
+					{{ vacancy!.tipoSueldo }} ({{ vacancy!.periodoPago }}) -
+					{{ vacancy!.tipoEmpleo }}
+				</p>
 
-    <button>Postularse ahora</button>
-    <button>Guardar</button>
-  </header>
-  <section>
-    <h3>Información del empleo</h3>
-    <h4>Habilidades</h4>
-    <div class="chip-container">
-      @for (lang of vacancy?.habilidadesTecnicas; track lang) {
-      <span class="chip">{{ lang }}</span>
-      }
-    </div>
+				<button>Postularse ahora</button>
+				<button>Guardar</button>
+			</header>
+			<section>
+				<h3>Información del empleo</h3>
+				<h4>Habilidades</h4>
+				<div class="chip-container">
+					@for (lang of vacancy!.habilidadesTecnicas; track lang) {
+					<span class="chip">{{ lang }}</span>
+					}
+				</div>
 
-    <h4>Sueldo</h4>
-    <div class="chip-container">
-      <span class="chip">
-        ${{ vacancy?.salarioMin }} a ${{ vacancy?.salarioMax }}
-        {{ vacancy?.tipoSueldo }} ({{ vacancy?.periodoPago }}) -
-        {{ vacancy?.tipoEmpleo }}
-      </span>
-    </div>
+				<h4>Sueldo</h4>
+				<div class="chip-container">
+					<span class="chip">
+						${{ vacancy!.salarioMin }} a ${{ vacancy!.salarioMax }}
+						{{ vacancy!.tipoSueldo }} ({{ vacancy!.periodoPago }}) -
+						{{ vacancy!.tipoEmpleo }}
+					</span>
+				</div>
 
-    <h4>Tiempo y horario</h4>
-    <div class="chip-container">
-      <span class="chip">{{ vacancy?.tipoEmpleo }}</span>
-      <span class="chip">{{ vacancy?.horario }}</span>
-    </div>
-  </section>
+				<h4>Tiempo y horario</h4>
+				<div class="chip-container">
+					<span class="chip">{{ vacancy!.tipoEmpleo }}</span>
+					<span class="chip">{{ vacancy!.horario }}</span>
+				</div>
+			</section>
 
-  <section>
-    <h3>Descripción completa</h3>
-    <p>{{ vacancy?.nombreEmpresa | uppercase }}</p>
-    <p>{{ vacancy?.descripcion }}</p>
+			<section>
+				<h3>Descripción completa</h3>
+				<p>{{ vacancy!.nombreEmpresa | uppercase }}</p>
+				<p>{{ vacancy!.descripcion }}</p>
 
-    <h4>Requisitos</h4>
-    <ul>
-      <li>{{ vacancy?.escolaridad }}</li>
-      @for (skill of vacancy?.habilidadesTecnicas; track skill) {
-      <li>{{ skill }}</li>
-      } @for (skill of vacancy?.habilidadesBlandas; track skill) {
-      <li>{{ skill }}</li>
-      } @if (vacancy?.disponibilidadViaje) {
-      <li>Disponibilidad de viaje</li>
-      } @if (vacancy?.disponibilidadRadicar) {
-      <li>Disponibilidad de radicar</li>
-      }
-      <li>{{ vacancy?.experiencia }}</li>
-      <li>{{ vacancy?.edadMin }} - {{ vacancy?.edadMax }} años</li>
-    </ul>
+				<h4>Requisitos</h4>
+				<ul>
+					<li>{{ vacancy!.escolaridad }}</li>
+					@for (skill of vacancy!.habilidadesTecnicas; track skill) {
+					<li>{{ skill }}</li>
+					} @for (skill of vacancy!.habilidadesBlandas; track skill) {
+					<li>{{ skill }}</li>
+					} @if (vacancy!.disponibilidadViaje) {
+					<li>Disponibilidad de viaje</li>
+					} @if (vacancy!.disponibilidadRadicar) {
+					<li>Disponibilidad de radicar</li>
+					}
+					<li>{{ vacancy!.experiencia }}</li>
+					<li>{{ vacancy!.edadMin }} - {{ vacancy!.edadMax }} años</li>
+				</ul>
 
-    <h4>Prestaciones</h4>
-    <ul>
-      @for (prestacion of vacancy?.prestaciones; track prestacion) {
-      <li>{{ prestacion }}</li>
-      }
-    </ul>
-    <p>Tipo de contrato: {{ vacancy?.tipoContrato }}</p>
-    <p>
-      Salario: ${{ vacancy?.salarioMin }} - ${{ vacancy?.salarioMax }}
-      {{ vacancy?.tipoSueldo }} ({{ vacancy?.periodoPago }})
-    </p>
-    <p>Horario laboral:</p>
-    <ul>
-      <li>{{ vacancy?.horario }}</li>
-      <li>
-        @for(day of vacancy?.diasLaborales; track day) {
-        {{ weekDays[day] }}
-        }
-      </li>
-    </ul>
+				<h4>Prestaciones</h4>
+				<ul>
+					@for (prestacion of vacancy!.prestaciones; track prestacion) {
+					<li>{{ prestacion }}</li>
+					}
+				</ul>
+				<p>Tipo de contrato: {{ vacancy!.tipoContrato }}</p>
+				<p>
+					Salario: ${{ vacancy!.salarioMin }} - ${{ vacancy!.salarioMax }}
+					{{ vacancy!.tipoSueldo }} ({{ vacancy!.periodoPago }})
+				</p>
+				<p>Horario laboral:</p>
+				<ul>
+					<li>{{ vacancy!.horario }}</li>
+					<li>
+						@for(day of vacancy!.diasLaborales; track day) {
+						{{ weekDays[day] }}
+						}
+					</li>
+				</ul>
 
-    <h4>Idioma</h4>
-    <ul>
-      @for (lang of vacancy?.idiomas; track lang) {
-      <li>{{ lang }}</li>
-      }
-    </ul>
-    <p>Lugar de trabajo: {{ vacancy?.modalidad }}</p>
-  </section>
+				<h4>Idioma</h4>
+				<ul>
+					@for (lang of vacancy!.idiomas; track lang) {
+					<li>{{ lang }}</li>
+					}
+				</ul>
+				<p>Lugar de trabajo: {{ vacancy!.modalidad }}</p>
+			</section>
 
-  <button>Reportar</button>
-</div>
+			<button>Reportar</button>
+		}
+	</section>
+</main>
