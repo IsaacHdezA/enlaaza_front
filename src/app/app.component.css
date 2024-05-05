@@ -1,0 +1,6 @@
+main.my-content {
+	margin-top: var(--header-height);
+  height: auto;
+
+  padding: 20px;
+}

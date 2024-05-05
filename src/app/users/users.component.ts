@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [UserCardComponent, CommonModule],
   templateUrl: './users.component.html',
-  styleUrl: './users.component.css',
+  styleUrls: ['../app.component.css', './users.component.css'],
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];

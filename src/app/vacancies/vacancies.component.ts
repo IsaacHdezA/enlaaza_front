@@ -11,7 +11,7 @@ import { VacancyService } from '../services/vacancies/vacancy.service';
   standalone: true,
   imports: [VacancyCardComponent, VacancyDetailComponent, CommonModule],
   templateUrl: './vacancies.component.html',
-  styleUrl: './vacancies.component.css',
+  styleUrls: ['../app.component.css', './vacancies.component.css'],
 })
 export class VacanciesComponent {
   vacancies: Vacancy[] = [];

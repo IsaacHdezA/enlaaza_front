@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [UserCardComponent],
   templateUrl: './user-detail.component.html',
-  styleUrl: './user-detail.component.css'
+  styleUrls: ['../../app.component.css', './user-detail.component.css'],
 })
 export class UserDetailComponent implements OnInit {
   id: number | null = null;

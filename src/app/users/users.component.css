@@ -1,6 +1,4 @@
 main {
-  margin: var(--header-height) auto;
-
   display: flex;
   flex-wrap: wrap;
 
