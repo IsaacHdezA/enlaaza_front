@@ -6,10 +6,10 @@ import { VacancyDetailComponent } from './components/vacancy-detail/vacancy-deta
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/users', pathMatch: 'full' },
-  { path: 'users', component: UsersComponent },
-  { path: 'vacancies', component: VacanciesComponent },
-  { path: 'user-detail', component: UserDetailComponent },
-  { path: 'vacancy-detail', component: VacancyDetailComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { path: '', redirectTo: '/users', pathMatch: 'full'        },
+  { path: 'users',         component: UsersComponent         },
+  { path: 'users/:id',     component: UserDetailComponent    },
+  { path: 'vacancies',     component: VacanciesComponent     },
+  { path: 'vacancies/:id', component: VacancyDetailComponent },
+  { path: '**',            component: PageNotFoundComponent  },
 ];

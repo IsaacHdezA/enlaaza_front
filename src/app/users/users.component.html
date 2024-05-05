@@ -1,5 +1,5 @@
-<main>
+<main class="content">
   @for(user of users; track user.curp) {
-  <app-user-card [user]="user"></app-user-card>
+  <app-user-card [user]="user" (click)="onClick(user)"></app-user-card>
   }
 </main>

@@ -1,47 +1,24 @@
 <div class="container">
   <header>
-    <h2>{{ user!.nombre }} {{ user!.apellidos }}</h2>
+    <h2>{{ user!.nombre }}, {{ user!.apellidos }}</h2>
   </header>
   <section>
     <div class="chip-container">
       <span><b>Idiomas:</b></span>
-      @for (lang of user!.idiomas; track lang) {
-      <span class="chip">{{ lang }}</span>
+      @for (lang of user!.idiomas.slice(0, 3); track lang) {
+        <span class="chip">{{ lang }}</span>
       }
-    </div>
-    <div class="chip-container">
-      <span><b>Habilidades blandas:</b></span>
-      @for (skill of user!.habilidadesBlandas; track skill) {
-      <span class="chip">{{ skill }}</span>
-      }
+      @if (user!.idiomas.length > 3) { <span class="chip">...</span> }
     </div>
     <div class="chip-container">
       <span><b>Habilidades técnicas:</b></span>
-      @for (skill of user!.habilidadesTecnicas; track skill) {
-      <span class="chip">{{ skill }}</span>
+      @for (skill of user!.habilidadesTecnicas.slice(0, 3); track skill) {
+        <span class="chip">{{ skill }}</span>
       }
+      @if (user!.habilidadesTecnicas.length > 3) { <span class="chip">...</span> }
     </div>
     <p><b>Escolaridad:</b> {{ user!.escolaridad }}</p>
-    <p><b>Plantel:</b> {{ user!.plantel }}</p>
     <p><b>Edad:</b> {{ user!.edad }} años</p>
     <p><b>Género:</b> {{ user!.genero ? "Masculino" : "Femenino" }}</p>
-    <p>
-      <b>Correo electrónico:</b>
-      <a [href]="user!.correoElectronico"> {{ user!.correoElectronico }}</a>
-    </p>
-    <p><b>Teléfono:</b> {{ user!.telefono }}</p>
-    <p><b>Municipio:</b> {{ user!.municipio }}</p>
-    <p><b>Calle:</b> {{ user!.calle }}</p>
-    <p><b>Número:</b> {{ user!.numero }}</p>
-    <p><b>Colonia:</b> {{ user!.colonia }}</p>
-    <p><b>Código postal:</b> {{ user!.codigoPostal }}</p>
-    <p><b>Actividad actual:</b> {{ user!.actividadActual }}</p>
-    <p><b>Busca empleo:</b> {{ user!.buscaEmpleo ? "Sí" : "No" }}</p>
-    <p><b>Busca (opción 1):</b> {{ user!.buscaOpcion1 }}</p>
-    <p><b>Busca (opción 2):</b> {{ user!.buscaOpcion2 }}</p>
-    <p><b>Busca (opción 3):</b> {{ user!.buscaOpcion3 }}</p>
-    <p><b>Registro express:</b> {{ user!.registroExpress ? "Sí" : "No" }}</p>
-    <p><b>CURP:</b> {{ user!.curp }}</p>
-    <p><b>Número de seguro social:</b> {{ user!.numeroSeguroSocial }}</p>
   </section>
 </div>
