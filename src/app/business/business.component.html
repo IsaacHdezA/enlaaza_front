@@ -1,0 +1,24 @@
+<main class="my-content">
+	<div class="container">
+		<header>
+			<h2>{{ business!.nombreComercial }}</h2>
+		</header>
+		<section>
+			<div class="chip-container">
+				<span><b>Ubicación:</b></span>
+				<span class="chip">{{ business!.municipio }}, {{ business!.calle }}, {{ business!.numero }}, {{ business!.colonia }}</span>
+			</div>
+			<div class="chip-container">
+				<span><b>Industria:</b></span>
+				<span class="chip">{{ business!.sector }}</span>
+			</div>
+			<div class="chip-container">
+				<span><b>Descripción:</b></span>
+				<span class="chip">{{ business!.descripcionEmpresa }}</span>
+			</div>
+			<p><b>Contacto:</b> {{ business!.correoElectronico }}</p>
+			<p><b>Teléfono:</b> {{ business!.telefono }}</p>
+			<a href="#" class="button">Más información</a>
+		</section>
+	</div>
+</main>

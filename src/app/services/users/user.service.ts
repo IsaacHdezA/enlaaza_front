@@ -8,9 +8,7 @@ import { User } from '../../interfaces/user';
 })
 export class UserService {
   private userURL = "http://localhost:3000/users";
-  constructor(private http: HttpClient) {
-    console.log("Ramiro");
-  }
+  constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.userURL}/all`).pipe(

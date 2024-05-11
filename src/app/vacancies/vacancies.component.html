@@ -1,6 +1,6 @@
 <main class="my-content">
   <section class="vacancy-list">
-    @for (vacancy of vacancies; track vacancy) {
+    @for (vacancy of vacancies; track vacancy.vacanteId) {
 
     <div (click)="onClick(vacancy)" class="container">
       <header>

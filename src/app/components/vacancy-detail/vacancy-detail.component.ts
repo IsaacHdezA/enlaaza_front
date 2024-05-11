@@ -37,6 +37,7 @@ export class VacancyDetailComponent implements OnInit {
   getVacancy(id: number): void {
     this.vacancyService.getVacancyById(id).subscribe(response => {
       this.vacancy = response;
+      console.log(response);
 
       if(!this.vacancy) this.router.navigate(["**"]);
     })

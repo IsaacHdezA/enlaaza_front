@@ -1,4 +1,7 @@
 export interface Vacancy {
+  vacanteId: number;
+  empresaId: number; 
+
   fechaRegistro: Date;
   vigencia: string;
   nombreEmpresa: string;

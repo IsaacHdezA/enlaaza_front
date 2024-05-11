@@ -1,12 +1,12 @@
 export interface User {
   userId?: number;
-  fechaRegistro: Date;
+  fechaRegistro: string;
   motivoRegistro?: string;
   registroCompleto?: boolean;
   nombre: string;
   apellidos: string;
   curp: string;
-  fecNac: Date;
+  fecNac: string;
   edad: number;
   genero: boolean;
   correoElectronico: string;
