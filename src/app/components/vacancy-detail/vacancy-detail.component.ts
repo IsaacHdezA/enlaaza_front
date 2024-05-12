@@ -16,7 +16,7 @@ import { Business } from '../../interfaces/business';
 })
 export class VacancyDetailComponent implements OnInit {
   id: number | null = null;
-  vacancy: (Vacancy & Business) | null = null;
+  vacancy: Vacancy | null = null;
 
   weekDays: string[] = [
     '',
