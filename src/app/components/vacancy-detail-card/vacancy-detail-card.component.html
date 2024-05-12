@@ -3,7 +3,7 @@
     <h2>
       {{ vacancy?.nombreVacante }}
     </h2>
-    <a href="">{{ vacancy?.nombreEmpresa }}</a> ·
+    <a routerLink="/businesses/{{ vacancy?.empresaId }}">{{ vacancy?.nombreEmpresa }}</a> ·
     <span>{{ vacancy?.calificacion }} ★</span>
     <p>{{ vacancy?.modalidad }}</p>
 

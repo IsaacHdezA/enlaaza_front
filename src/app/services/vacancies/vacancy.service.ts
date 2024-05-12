@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Vacancy } from '../../interfaces/vacancy';
+import { Business } from '../../interfaces/business';
 
 @Injectable({
 	providedIn: 'root'
@@ -12,8 +13,8 @@ export class VacancyService {
 		console.log("Ramiro from vacancy");
 	}
 
-	getVacancies(): Observable<Vacancy[]> {
-		return this.http.get<Vacancy[]>(`${this.vacancyURL}/all`);
+	getVacancies(): Observable<(Vacancy & Business)[]> {
+		return this.http.get<Vacancy[]>(`${this.vacancyURL}/all`) as Observable<(Vacancy & Business)[]>;
 	}
 
 	getVacancyById(id: number): Observable<Vacancy> {

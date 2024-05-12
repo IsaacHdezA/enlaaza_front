@@ -1,38 +1,41 @@
 <main class="my-content">
-  <section class="vacancy-list">
-    @for (vacancy of vacancies; track vacancy.vacanteId) {
-
-    <div (click)="onClick(vacancy)" class="container">
-      <header>
-        <h2 id="nombreVacante">{{ vacancy!.nombreVacante }}</h2>
-        <p>{{ vacancy!.nombreEmpresa }}</p>
-        <p>{{ vacancy!.modalidad }}</p>
-      </header>
-      <section>
-        <div class="chip-container">
-          <span class="chip">
-            ${{ vacancy!.salarioMin }} a ${{ vacancy!.salarioMax }}
-            {{ vacancy!.tipoSueldo }} ({{ vacancy!.periodoPago }})
-          </span>
-          <span class="chip">{{ vacancy!.tipoEmpleo }}</span>
-          <span class="chip">{{ vacancy!.horario }}</span>
+  @if(loading) {
+    <h2>Downloading data...</h2>
+  } @else {
+    <section class="vacancy-list">
+      @for (vacancy of vacancies; track vacancy.vacanteId) {
+        <div (click)="onClick(vacancy)" class="container">
+          <header>
+            <h2 id="nombreVacante">{{ vacancy!.nombreVacante }}</h2>
+            <p>{{ vacancy!.nombreEmpresa }}</p>
+            <p>{{ vacancy!.modalidad }}</p>
+          </header>
+          <section>
+            <div class="chip-container">
+              <span class="chip">
+                ${{ vacancy!.salarioMin }} a ${{ vacancy!.salarioMax }}
+                {{ vacancy!.tipoSueldo }} ({{ vacancy!.periodoPago }})
+              </span>
+              <span class="chip">{{ vacancy!.tipoEmpleo }}</span>
+              <span class="chip">{{ vacancy!.horario }}</span>
+            </div>
+          </section>
+          <section>
+            <ul>
+              <li>
+                {{ vacancy.descripcion }}
+              </li>
+            </ul>
+          </section>
         </div>
-      </section>
-      <section>
-        <ul>
-          <li>
-            {{ vacancy.descripcion }}
-          </li>
-        </ul>
-      </section>
-    </div>
-    }
-  </section>
-  <section class="vacancy-detail">
-      <app-vacancy-detail-card
-        [class]="detailsFixed ? 'fixed' : 'no-fixed'"
-        (scroll)="onScroll"
-        [vacancy]="selected"
-      ></app-vacancy-detail-card>
-  </section>
+      }
+    </section>
+    <section class="vacancy-detail">
+        <app-vacancy-detail-card
+          [class]="detailsFixed ? 'fixed' : 'no-fixed'"
+          (scroll)="onScroll"
+          [vacancy]="selected"
+        ></app-vacancy-detail-card>
+    </section>
+  }
 </main>

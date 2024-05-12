@@ -4,18 +4,19 @@ import { UpperCasePipe } from '@angular/common';
 
 import { Vacancy } from '../../interfaces/vacancy';
 import { VacancyService } from '../../services/vacancies/vacancy.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Business } from '../../interfaces/business';
 
 @Component({
   selector: 'app-vacancy-detail',
   standalone: true,
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe, RouterLink],
   templateUrl: './vacancy-detail.component.html',
   styleUrls: ['../../app.component.css', './vacancy-detail.component.css']
 })
 export class VacancyDetailComponent implements OnInit {
   id: number | null = null;
-  vacancy: Vacancy | null = null;
+  vacancy: (Vacancy & Business) | null = null;
 
   weekDays: string[] = [
     '',
@@ -36,9 +37,7 @@ export class VacancyDetailComponent implements OnInit {
 
   getVacancy(id: number): void {
     this.vacancyService.getVacancyById(id).subscribe(response => {
-      this.vacancy = response;
-      console.log(response);
-
+      this.vacancy = response as (Vacancy & Business);
       if(!this.vacancy) this.router.navigate(["**"]);
     })
   }

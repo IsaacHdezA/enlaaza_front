@@ -1,5 +1,6 @@
 export interface Business {
-  fechaRegistro: Date;
+  empresaId: number;
+  fechaRegistro: string;
   verificada: boolean;
   motivoRegistro: string;
   logoEmpresa?: string; // Campo opcional
@@ -11,8 +12,9 @@ export interface Business {
   descripcionEmpresa: string;
   municipio: string;
   calle: string;
-  numero: string;
+  numero: number;
   colonia: string;
+  codigoPostal?: number;
   paisOrigen: string;
   perfilesEmpresa: string[];
   sector: string;

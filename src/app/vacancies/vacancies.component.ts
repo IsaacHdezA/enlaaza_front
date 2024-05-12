@@ -18,6 +18,7 @@ export class VacanciesComponent implements OnInit {
   vacancies: Vacancy[] = [];
   selected?: Vacancy = undefined;
   detailsFixed: boolean = false;
+  loading: boolean = true;
 
   @HostListener('window:scroll', ['$event']) onScroll() {
     if(window.scrollY > 60) this.detailsFixed = true;
@@ -27,7 +28,6 @@ export class VacanciesComponent implements OnInit {
 
   onClick(vacancy: Vacancy): void {
     this.selected = vacancy;
-    console.log(this.selected);
   }
 
   getVacancies(): void {
@@ -35,6 +35,8 @@ export class VacanciesComponent implements OnInit {
       this.vacancies = response;
 
       if(this.vacancies.length > 0) this.selected = this.vacancies[0];
+
+      this.loading = false;
     })
   }
 
