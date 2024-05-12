@@ -3,7 +3,7 @@
     <h2>Downloading data...</h2>
   } @else {
     <section class="vacancy-list">
-      @for (vacancy of vacancies; track vacancy.vacanteId) {
+      @for (vacancy of pager!.data; track vacancy.vacanteId) {
         <div (click)="onClick(vacancy)" class="container">
           <header>
             <h2 id="nombreVacante">{{ vacancy!.nombreVacante }}</h2>

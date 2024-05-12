@@ -5,7 +5,7 @@ import { Vacancy } from '../interfaces/vacancy';
 import { VacancyCardComponent } from '../components/vacancy-card/vacancy-card.component';
 import { VacancyDetailCardComponent } from '../components/vacancy-detail-card/vacancy-detail-card.component';
 import { VacancyService } from '../services/vacancies/vacancy.service';
-
+import { Pager } from '../interfaces/pager';
 
 @Component({
   selector: 'app-vacancies',
@@ -15,7 +15,8 @@ import { VacancyService } from '../services/vacancies/vacancy.service';
   styleUrls: ['../app.component.css', './vacancies.component.css'],
 })
 export class VacanciesComponent implements OnInit {
-  vacancies: Vacancy[] = [];
+  pager: Pager<Vacancy> | undefined = undefined;
+
   selected?: Vacancy = undefined;
   detailsFixed: boolean = false;
   loading: boolean = true;
@@ -32,10 +33,9 @@ export class VacanciesComponent implements OnInit {
 
   getVacancies(): void {
     this.vacancyService.getVacancies().subscribe(response => {
-      this.vacancies = response;
+      this.pager = response;
 
-      if(this.vacancies.length > 0) this.selected = this.vacancies[0];
-
+      if(this.pager.data.length > 0) this.selected = this.pager.data[0];
       this.loading = false;
     })
   }
