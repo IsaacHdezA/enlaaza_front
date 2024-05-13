@@ -21,4 +21,17 @@ export class PagerComponent<T> {
       this.pagerChange.emit(this.pager);
     });
   }
+
+  onEnterKey(event: any) {
+    const value = event.target.value as number;
+    const inputPage: number =
+    value > 0 ?
+      value :
+      -value < this.pager!.totalPages ?
+        -value :
+        this.pager!.totalPages
+    ;
+
+    this.onClick(inputPage);
+  }
 }

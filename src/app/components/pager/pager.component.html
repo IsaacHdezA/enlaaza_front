@@ -1,31 +1,13 @@
 <div class="pager-container">
-	<h3>Pages:</h3>
+	<p class="page" (click)="onClick(pager!.page)"><</p>
 	<div class="pages">
-		@if (pager!.page == 0) {
-			<input type="text" size="{{ pager!.totalPages.toString().length }}" value="{{ pager!.page + 1 }}">
-			<p class="page" (click)="onClick(2)">2</p>
-			<p class="page" (click)="onClick(3)">3</p>
-			<p class="page" (click)="onClick(pager!.totalPages / 2)">...</p>
-			<p class="page" (click)="onClick(pager!.totalPages - 1)">{{ pager!.totalPages - 1 }}</p>
-			<p class="page" (click)="onClick(pager!.totalPages)">{{ pager!.totalPages }}</p>
-		} @else if ((pager!.page + 1) == pager!.totalPages) {
-			<p class="page" (click)="onClick(1)">1</p>
-			<p class="page" (click)="onClick(2)">2</p>
-			<p class="page" (click)="onClick(pager!.totalPages / 2)">...</p>
-			<p class="page" (click)="onClick(pager!.totalPages - 2)">{{ pager!.totalPages - 2 }}</p>
-			<p class="page" (click)="onClick(pager!.totalPages - 1)">{{ pager!.totalPages - 1 }}</p>
-			<input type="text"
-				size="{{ pager!.totalPages.toString().length }}"
-				value="{{ pager!.page + 1 }}"
-			>
-		} @else {
-			<p class="page" (click)="onClick(1)">1</p>
-			<p class="page" (click)="onClick(2)">2</p>
-			<p class="page" (click)="onClick(pager!.page - 1)">{{ pager!.page - 1 }}</p>
-			<input type="text" size="3" value="{{ pager!.page + 1 }}">
-			<p class="page" (click)="onClick(pager!.page + 1)">{{ pager!.page + 1 }}</p>
-			<p class="page" (click)="onClick(pager!.totalPages - 1)">{{ pager!.totalPages - 1 }}</p>
-			<p class="page" (click)="onClick(pager!.totalPages)">{{ pager!.totalPages }}</p>
-		}
+		<p class="page" (click)="onClick(1)">1</p>
+		<p>...</p>
+		<p class="page" (click)="onClick(pager!.page - 1)">{{ pager!.page }}</p>
+		<input type="number" (keydown.enter)="onEnterKey($event)" value="{{ pager!.page + 1 }}">
+		<p class="page" (click)="onClick(pager!.page + 2)">{{ pager!.page + 2 }}</p>
+		<p>...</p>
+		<p class="page" (click)="onClick(pager!.totalPages)">{{ pager!.totalPages }}</p>
 	</div>
+	<p class="page" (click)="onClick(pager!.page + 2)">></p>
 </div>
