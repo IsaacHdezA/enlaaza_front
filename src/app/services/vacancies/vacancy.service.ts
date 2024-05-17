@@ -14,7 +14,7 @@ export class VacancyService extends PagerService {
 	}
 
 	getPage<Vacancy>(itemsPerPage: number = 10, page: number = 1): Observable<Pager<Vacancy>> {
-		return this.http.get<Pager<Vacancy>>(`${this.url}/all/${itemsPerPage}/${page}`) as Observable<Pager<Vacancy>>;
+		return this.http.get<Pager<Vacancy>>(`${this.url}/all/${itemsPerPage}/${page}`);
 	}
 
 	getVacancyById(id: number): Observable<Vacancy> {

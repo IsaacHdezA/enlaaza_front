@@ -34,7 +34,7 @@ import { PAGER_SERVICE_TOKEN, PagerService } from '../services/pager/pager.servi
 export class VacanciesComponent implements OnInit {
   itemsPerPage: number = 10;
   currentPage: number = 1;
-  pager: Pager<Vacancy> | undefined = undefined;
+  pager?: Pager<Vacancy> = new Pager<Vacancy>;
 
   selected?: Vacancy = undefined;
   detailsFixed: boolean = false;
@@ -44,7 +44,7 @@ export class VacanciesComponent implements OnInit {
     if(window.scrollY > 60) this.detailsFixed = true;
     else this.detailsFixed = false;
   }
-  constructor(@Inject(PAGER_SERVICE_TOKEN) private vacancyService: PagerService) {}
+  constructor(@Inject(PAGER_SERVICE_TOKEN) private vacancyService: VacancyService) {}
 
   getVacancies(itemsPerPage: number = this.itemsPerPage, page: number = 1): void {
     this.vacancyService.getPage<Vacancy>(itemsPerPage, page).subscribe(response => {

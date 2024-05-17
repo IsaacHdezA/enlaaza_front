@@ -27,7 +27,6 @@ export class PagerComponent<T> implements OnInit {
   onClick(page: number): void {
     if(!this.pager) return;
 
-    console.log(`Actual page ${this.pager.page}; Total pages: ${this.pager.totalPages} Trying to get: ${page}`);
     if(this.pager.page >= 0 && this.pager.page <= this.pager.totalPages) {
       this.service.getPage<T>(this.pager.itemsPerPage, page).subscribe(response => {
         this.pager = response;
@@ -49,6 +48,6 @@ export class PagerComponent<T> implements OnInit {
   }
 
   ngOnInit(): void {
-    this.toggleAvailable();
+    if(this.pager) this.toggleAvailable();
   }
 }
