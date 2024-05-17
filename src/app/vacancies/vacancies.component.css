@@ -8,6 +8,11 @@ main {
 }
 
 .vacancy-list {
+  padding: 10px;
+  height: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
   display: flex;
   flex-direction: column;
 

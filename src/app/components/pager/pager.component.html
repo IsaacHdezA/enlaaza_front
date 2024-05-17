@@ -1,13 +1,13 @@
 <div class="pager-container">
-	<p class="page" (click)="onClick(pager!.page)"><</p>
 	<div class="pages">
-		<p class="page" (click)="onClick(1)">1</p>
-		<p>...</p>
-		<p class="page" (click)="onClick(pager!.page - 1)">{{ pager!.page }}</p>
-		<input type="number" (keydown.enter)="onEnterKey($event)" value="{{ pager!.page + 1 }}">
-		<p class="page" (click)="onClick(pager!.page + 2)">{{ pager!.page + 2 }}</p>
-		<p>...</p>
-		<p class="page" (click)="onClick(pager!.totalPages)">{{ pager!.totalPages }}</p>
+		<p class="page" (click)="onClick(pager!.page - 1)" [ngClass]="!leftAvailable ? 'hidden' : ''"><</p>
+		<p class="page" (click)="onClick(1)" [ngClass]="!leftAvailable ? 'hidden' : ''">1</p>
+		<p [ngClass]="!leftAvailable ? 'hidden' : ''">...</p>
+		<p class="page" (click)="onClick(pager!.page - 1)" [ngClass]="!leftAvailable ? 'hidden' : ''">{{ pager!.page - 1}}</p>
+		<input type="number" (keydown.enter)="onEnterKey($event)" value="{{ pager!.page }}">
+		<p class="page" (click)="onClick(pager!.page + 1)" [ngClass]="!rightAvailable ? 'hidden' : ''">{{ pager!.page + 1 }}</p>
+		<p [ngClass]="!rightAvailable ? 'hidden' : ''">...</p>
+		<p class="page" (click)="onClick(pager!.totalPages)" [ngClass]="!rightAvailable ? 'hidden' : ''">{{ pager!.totalPages }}</p>
+		<p class="page" (click)="onClick(pager!.page + 1)" [ngClass]="!rightAvailable ? 'hidden' : ''" [ngClass]="!rightAvailable ? 'hidden' : ''">></p>
 	</div>
-	<p class="page" (click)="onClick(pager!.page + 2)">></p>
 </div>
